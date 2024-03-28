@@ -72,3 +72,11 @@ Thumbs.db
 venv/*.*
 
 __pycache__
+
+app/data/upload
+
+app/data/download
+
+app/inference_model
+
+app/log_file
