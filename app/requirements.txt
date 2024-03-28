@@ -1,0 +1,11 @@
+# pip install -r requirements.txt
+
+gevent
+fitz
+PyMuPDF
+flask
+flask_cors
+paddleocr==2.7.0
+paddlepaddle==2.6.1
+paddlenlp==2.7.2
+paddleclas=2.5.1

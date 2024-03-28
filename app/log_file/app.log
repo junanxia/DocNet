@@ -1,0 +1,50 @@
+2024-03-22 15:37:04,921 INFO D:\Working\ocr\new-code\app\server.py: DocParse Web Server(1.0.0) started on port 9990.
+2024-03-22 15:38:07,962 INFO D:\Working\ocr\new-code\app\server.py: DocParse Web Server(1.0.0) started on port 9990.
+2024-03-22 15:38:10,842 INFO D:\Working\ocr\new-code\app\server.py: Request: /struct/contract_in_pdf_v14_ocr?
+2024-03-22 15:38:10,842 INFO D:\Working\ocr\new-code\app\server.py: Response: 200 OK
+2024-03-22 15:40:10,876 INFO D:\Working\ocr\new-code\app\server.py: DocParse Web Server(1.0.0) started on port 9990.
+2024-03-22 15:40:13,771 INFO D:\Working\ocr\new-code\app\server.py: Request: /struct/contract_in_pdf_v14_ocr?, args: ImmutableMultiDict([])
+2024-03-22 15:40:13,771 INFO D:\Working\ocr\new-code\app\server.py: Response: 200 OK
+2024-03-22 16:19:33,565 INFO D:\Working\ocr\new-code\app\server.py: DocParse Web Server(1.0.0) started on port 9990.
+2024-03-22 16:23:51,858 INFO D:\Working\ocr\new-code\app\server.py: DocParse Web Server(1.0.0) started on port 9990.
+2024-03-22 16:24:26,249 INFO D:\Working\ocr\new-code\app\server.py: DocParse Web Server(1.0.0) started on port 9990.
+2024-03-22 16:26:02,458 INFO D:\Working\ocr\new-code\app\server.py: Request: /struct/upload_contract_pdf?
+2024-03-22 16:26:02,459 INFO D:\Working\ocr\new-code\app\server.py: Response: 404 NOT FOUND
+2024-03-22 16:26:47,772 INFO D:\Working\ocr\new-code\app\server.py: DocParse Web Server(1.0.0) started on port 9990.
+2024-03-22 16:26:52,859 INFO D:\Working\ocr\new-code\app\server.py: Request: /struct/upload_contract_pdf?
+2024-03-22 16:26:52,861 INFO D:\Working\ocr\new-code\app\server.py: Response: 500 INTERNAL SERVER ERROR
+2024-03-22 16:27:21,100 INFO D:\Working\ocr\new-code\app\server.py: DocParse Web Server(1.0.0) started on port 9990.
+2024-03-22 16:28:03,673 INFO D:\Working\ocr\new-code\app\server.py: Request: /struct/upload_contract_pdf?
+2024-03-22 16:28:03,675 INFO D:\Working\ocr\new-code\app\server.py: Response: 500 INTERNAL SERVER ERROR
+2024-03-22 16:28:50,426 INFO D:\Working\ocr\new-code\app\server.py: DocParse Web Server(1.0.0) started on port 9990.
+2024-03-22 16:28:54,386 INFO D:\Working\ocr\new-code\app\server.py: Request: /struct/upload_contract_pdf?
+2024-03-22 16:28:54,387 INFO D:\Working\ocr\new-code\app\api\upload.py: error:expected str, bytes or os.PathLike object, not function
+2024-03-22 16:28:54,388 INFO D:\Working\ocr\new-code\app\server.py: Response: 500 INTERNAL SERVER ERROR
+2024-03-22 16:29:30,480 INFO D:\Working\ocr\new-code\app\server.py: DocParse Web Server(1.0.0) started on port 9990.
+2024-03-22 16:29:33,889 INFO D:\Working\ocr\new-code\app\server.py: Request: /struct/upload_contract_pdf?
+2024-03-22 16:29:33,965 INFO D:\Working\ocr\new-code\app\server.py: Response: 200 OK
+2024-03-22 16:31:29,085 INFO D:\Working\ocr\new-code\app\server.py: DocParse Web Server(1.0.0) started on port 9990.
+2024-03-22 16:31:32,753 INFO D:\Working\ocr\new-code\app\server.py: Request: /struct/upload_contract_pdf?
+2024-03-22 16:31:32,812 INFO D:\Working\ocr\new-code\app\server.py: Response: 200 OK
+2024-03-22 16:33:12,068 INFO D:\Working\ocr\new-code\app\server.py: DocParse Web Server(1.0.0) started on port 9990.
+2024-03-22 16:33:16,878 INFO D:\Working\ocr\new-code\app\server.py: Request: /struct/upload_contract_pdf?
+2024-03-22 16:33:16,932 INFO D:\Working\ocr\new-code\app\server.py: Response: 200 OK
+2024-03-22 16:34:04,091 INFO D:\Working\ocr\new-code\app\server.py: DocParse Web Server(1.0.0) started on port 9990.
+2024-03-22 16:34:09,057 INFO D:\Working\ocr\new-code\app\server.py: Request: /struct/upload_contract_pdf?
+2024-03-22 16:34:09,124 INFO D:\Working\ocr\new-code\app\server.py: Response: 200 OK
+2024-03-22 16:36:58,340 INFO D:\Working\ocr\new-code\app\server.py: DocParse Web Server(1.0.0) started on port 9990.
+2024-03-22 16:37:01,385 INFO D:\Working\ocr\new-code\app\server.py: Request: /struct/upload_contract_pdf?
+2024-03-22 16:37:01,442 INFO D:\Working\ocr\new-code\app\server.py: Response: 200 OK
+2024-03-22 16:40:19,254 INFO D:\Working\ocr\new-code\app\server.py: DocParse Web Server(1.0.0) started on port 9990.
+2024-03-22 16:40:24,315 INFO D:\Working\ocr\new-code\app\server.py: Request: /struct/upload_contract_pdf?
+2024-03-22 16:40:24,373 INFO D:\Working\ocr\new-code\app\server.py: Response: 200 OK
+2024-03-22 16:43:16,161 INFO D:\Working\ocr\new-code\app\server.py: DocParse Web Server(1.0.0) started on port 9990.
+2024-03-22 16:43:22,568 INFO D:\Working\ocr\new-code\app\server.py: Request: /struct/upload_contract_pdf?
+2024-03-22 16:43:22,631 INFO D:\Working\ocr\new-code\app\server.py: Response: 200 OK
+2024-03-22 16:50:20,199 INFO D:\Working\ocr\new-code\app\server.py: DocParse Web Server(1.0.0) started on port 9990.
+2024-03-22 16:50:23,935 INFO D:\Working\ocr\new-code\app\server.py: Request: /struct/upload_contract_pdf?
+2024-03-22 16:50:24,000 INFO D:\Working\ocr\new-code\app\server.py: Response: 200 OK
+2024-03-22 16:52:33,707 INFO D:\Working\ocr\new-code\app\server.py: Request: /struct/contract_in_pdf_v14_ocr?
+2024-03-22 16:52:33,707 INFO D:\Working\ocr\new-code\app\server.py: Response: 500 INTERNAL SERVER ERROR
+2024-03-28 14:48:52,350 INFO D:\Working\ocr\new-code\app\server.py: Request: /struct/contract_in_pdf_v14_ocr?
+2024-03-28 14:48:52,362 INFO D:\Working\ocr\new-code\app\server.py: Response: 500 INTERNAL SERVER ERROR
