@@ -1,0 +1,341 @@
+{
+	"info": {
+		"_postman_id": "892abea9-a32c-4c96-9f77-6e7d667196dd",
+		"name": "测试",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "附件2-施工蓝图 半结构pdf",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "",
+							"type": "file",
+							"src": "/D:/tanld/SLPreData-matser/20231018_1/2_77_image_11.png"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:9999/struct/construction_blueprint_in_jpg",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "9999",
+					"path": [
+						"struct",
+						"construction_blueprint_in_jpg"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "附件3-1-设代日志 全结构word",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file\n",
+							"type": "file",
+							"src": "/D:/wanghy/project/zhws/doc_ocr_rec_python_why/file/docx/3_1.docx"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8888/struct/design_represent_log_in_docx",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8888",
+					"path": [
+						"struct",
+						"design_represent_log_in_docx"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "附件4-质量检测/混凝土抗压强度 半结构pdf",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "附件5-质量评定/单元工程评定表 无结构pic",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "附件6-隐蔽工程验收 无结构pic",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "附件7-地质超前预报 半结构pdf",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "附件8-围岩类别会签 无结构pic",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "附件9-（爆破）日志 全结构word",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "附件9-（爆破）日志 半结构pdf",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "附件10-安全日志 无结构pic",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "附件10-监理旁站 无结构pic",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "附件11-安全监测-拱顶沉降 全结构excel",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "",
+							"type": "file",
+							"src": "/D:/wanghy/project/zhws/doc_ocr_rec_python_why/file/xlsx/11_1.xlsx"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:9999/struct/safe_vault_settlement_in_xlsx",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "9999",
+					"path": [
+						"struct",
+						"safe_vault_settlement_in_xlsx"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "附件11-安全监测-拱顶沉降 无结构pic",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "附件11-安全监测-锚杆应力计 全结构excel",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "附件11-安全监测-锚杆应力计 无结构pic",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "附件11-安全监测-多点位移计 全结构excel",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "附件11-安全监测-多点位移计 无结构pic",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "附件12-施工月报 无结构pic",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "附件13-监理月报 无结构pic",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "附件14-进度款申报/付款审核汇总表 无结构pic",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "附件15-会务管理 无结构pic",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "附件16-大事记 全结构word",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "",
+							"type": "file",
+							"src": "/D:/wanghy/project/zhws/doc_ocr_rec_python_why/file/docx/16_1.docx"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://192.168.6.7:9999/struct/big_event_in_docx",
+					"protocol": "http",
+					"host": [
+						"192",
+						"168",
+						"6",
+						"7"
+					],
+					"port": "9999",
+					"path": [
+						"struct",
+						"big_event_in_docx"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "测试合同请求",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/D:/项目-水利工程文件/演示合同_20231204/新建压缩/04-安吉县南溪流域综合整治工程EPC项目合同_202208121617.pdf",
+							"disabled": true
+						},
+						{
+							"key": "savePath",
+							"value": "D:\\\\turh\\\\slstructure-master\\\\0UPLOAD\\\\2023-12-05\\\\2023-12-05-09-38-17-f6933850-930e-11ee-aaae-2c0547bdf74a\\\\04-安吉县南溪流域综合整治工程EPC项目合同_202208121617.pdf",
+							"type": "default"
+						},
+						{
+							"key": "startIndex",
+							"value": "0",
+							"type": "default"
+						},
+						{
+							"key": "endIndex",
+							"value": "0",
+							"type": "default"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://192.168.6.3:9996/struct/test",
+					"protocol": "http",
+					"host": [
+						"192",
+						"168",
+						"6",
+						"3"
+					],
+					"port": "9996",
+					"path": [
+						"struct",
+						"test"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -10,7 +10,7 @@
 import os
 
 class Config:
-    SVR_NAME = "DocParse Web Server"
+    SVR_NAME = "DocNet Web Server"
     VERSION = "1.0.0"
     SVR_PORT = 9990
 

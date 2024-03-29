@@ -19,6 +19,7 @@ from config import Config
 from api.contract import contract_api
 from api.upload import upload_api
 from api.download import download_api
+from api.blueprint import blueprint_api
 
 
 class MainExitException(Exception):
@@ -37,7 +38,7 @@ def create_logger(app):
     formatter = logging.Formatter(LOG_FORMAT)
     file_handler.setFormatter(formatter)
     file_handler.setLevel(logging.INFO)
-    app.logger.addHandler(file_handler) 
+    app.logger.addHandler(file_handler)
 
 
 def create_app():
@@ -51,6 +52,7 @@ def create_app():
     app.register_blueprint(contract_api)
     app.register_blueprint(upload_api)
     app.register_blueprint(download_api)
+    app.register_blueprint(blueprint_api)
 
     return app
 

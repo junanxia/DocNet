@@ -10,8 +10,10 @@
 import os
 import sys
 import traceback
+import numpy as np
 from flask import Blueprint, request, jsonify, current_app
 from utils.util import verify_data
+from parser.parser_wrapper import parser_wrapper
 
 
 contract_api = Blueprint('contract', __name__, url_prefix='/struct')
@@ -24,9 +26,6 @@ def contract_in_pdf_v14_ocr():
         v_flag, message = verify_data(request.form)
         if not v_flag:
             return jsonify({"error": message}), 500
-        
-        # 校验模型
-        INFER_CLASS = checkModel()
         
         # 获取请求参数
         start_index = request.form.get("startIndex")
@@ -52,9 +51,7 @@ def contract_in_pdf_v14_ocr():
         # 获取请求的ip地址
         ip = request.remote_addr
         ip_str = str(ip).replace('.', '-')
-        
-        all_result_boxes, all_result_texts, all_result_scores, image_path_list, cover_uie, protocol_uie, special_uie = (
-            infer_contract_v14_ocr(file_path, int(start_index), int(end_index), INFER_CLASS, ip_str))
+        all_result_boxes, all_result_texts, all_result_scores, image_path_list, cover_uie, protocol_uie, special_uie = parser_wrapper.contract_parser.get_result(file_path, int(start_index), int(end_index), ip=ip_str)
 
         return jsonify(
             {
