@@ -4,68 +4,10 @@ import os
 import numpy as np
 from parser.base import BaseParser
 from utils.util import get_download_save_path, calculate_iou, order_points, find_largest_rectangle
-from flask import current_app
+from parser.cell_det import parse_pic_to_struct, get_config_json, angle_cos
 
 
 class BlueprintParser(BaseParser):
-    # ----------- 配置文件 ----------- #
-    # 表格样式调参
-    # hmin_dis 值越大，检测到的横线越多
-    # vmin_dis 值越大，检测到的竖线越多
-    # cell_x_dis 最小单元格表格的长度x
-    # cell_y_dis 最小单元格表格的高度y
-    style_config = {
-        'normal': {
-            'hmin_dis': 10,
-            'vmin_dis': 10,
-            'cellx_dis': 10,
-            'celly_dis': 10,
-            'min_area': 2000,
-            'eroded_kernel': (0, 0),
-            'dilate_kernel': (1, 1)
-        },
-        'fj2': {
-            'hmin_dis': 15,
-            'vmin_dis': 11,
-            'cellx_dis': 5,
-            'celly_dis': 10,
-            'min_area': 100,
-            'eroded_kernel': (0, 0),
-            'dilate_kernel': (1, 1)
-        },
-        'fj4': {
-            'hmin_dis': 20,
-            'vmin_dis': 40,
-            'cellx_dis': 1,
-            'celly_dis': 1,
-            'min_area': 10,
-            'eroded_kernel': (0, 0),
-            'dilate_kernel': (1, 1)
-        },
-        'fj5': {
-            'hmin_dis': 20,
-            'vmin_dis': 40,
-            'cellx_dis': 10,
-            'celly_dis': 10,
-            'min_area': 100,
-            'eroded_kernel': (0, 0),
-            'dilate_kernel': (1, 1)
-        }
-    }
-
-    # 获取表格样式配置
-    def get_config_json(self, style_name):
-        # 此处添加样式识别逻辑代码
-        if style_name == "" or style_name not in self.style_config:
-            return self.style_config['normal']
-        else:
-            return self.style_config[style_name]
-    
-    @staticmethod
-    def angle_cos(p0, p1, p2):
-        d1, d2 = (p0 - p1).astype('float'), (p2 - p1).astype('float')
-        return abs(np.dot(d1, d2) / np.sqrt(np.dot(d1, d1) * np.dot(d2, d2)))
-
     # 寻找矩形单元格
     def find_squares(self, bin, img, config):
         # 设置putText函数字体
@@ -90,7 +32,7 @@ class BlueprintParser(BaseParser):
                 cy = int(M['m01'] / M['m00'])  # 轮廓重心
 
                 cnt = cnt.reshape(-1, 2)
-                max_cos = np.max([self.angle_cos(cnt[i], cnt[(i + 1) % 4], cnt[(i + 2) % 4]) for i in range(4)])
+                max_cos = np.max([angle_cos(cnt[i], cnt[(i + 1) % 4], cnt[(i + 2) % 4]) for i in range(4)])
                 # 只检测矩形（cos90° = 0）
                 if max_cos < 0.1:
                     # 检测四边形（不限定角度范围）
@@ -99,79 +41,6 @@ class BlueprintParser(BaseParser):
                     cv2.putText(img, ("#%d" % index), (cx, cy), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (255, 0, 255), 2)
                     squares.append(cnt)
         return squares, img
-
-    # 表格图片结构化
-    def parse_pic_to_struct(self, src, config):
-        # # 要计算一下，然后每个文档版面设置不一样的参数
-        hmin_dis = config['hmin_dis']
-        vmin_dis = config['vmin_dis']
-        cellx_dis = config['cellx_dis']
-        celly_dis = config['celly_dis']
-
-        # 灰度图片
-        gray = cv2.cvtColor(src, cv2.COLOR_BGR2GRAY)
-        # 二值化 ADAPTIVE_THRESH_MEAN_C ADAPTIVE_THRESH_GAUSSIAN_C/THRESH_BINARY  THRESH_BINARY_INV
-        binary = cv2.adaptiveThreshold(~gray, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2.THRESH_BINARY, 15, -2)
-        # 模糊处理 腐蚀（减少）和膨胀（变粗）
-        kernel = np.ones(config['dilate_kernel'], np.uint8)
-        binary = cv2.dilate(binary, kernel, iterations=1)
-
-        # 获取所有横竖线网格
-        rows, cols = binary.shape
-
-        # 获取横线 先腐蚀再膨胀
-        scale = hmin_dis
-        kernel = cv2.getStructuringElement(cv2.MORPH_RECT, (cols // scale, 1))
-        eroded = cv2.erode(binary, kernel, iterations=1)
-        dilated_col = cv2.dilate(eroded, kernel, iterations=1)
-
-        # 识别竖线 先腐蚀再膨胀
-        scale = vmin_dis
-        kernel = cv2.getStructuringElement(cv2.MORPH_RECT, (1, rows // scale))
-        eroded = cv2.erode(binary, kernel, iterations=1)
-        dilated_row = cv2.dilate(eroded, kernel, iterations=1)
-
-        # 标识交点
-        bitwise_and = cv2.bitwise_and(dilated_col, dilated_row)
-
-        # 标识表格
-        merge = cv2.add(dilated_col, dilated_row)
-        # 模糊处理 腐蚀和膨胀
-        kernel_rec = np.ones((3, 3), np.uint8)
-        merge = cv2.dilate(merge, kernel_rec, iterations=1)
-
-        # 识别黑白图中的白色交叉点，将横纵坐标取出
-        ys, xs = np.where(bitwise_and > 0)
-        if len(ys) == 0 and len(xs) == 0:
-            return [], None
-
-        # 纵坐标
-        y_point_arr = []
-        # 横坐标
-        x_point_arr = []
-        # 通过排序，获取跳变的x和y的值，说明是交点，否则交点会有好多像素值值相近，我只取相近值的最后一点
-        # 这个10的跳变不是固定的，根据不同的图片会有微调，基本上为单元格表格的高度（y坐标跳变）和长度（x坐标跳变）
-        i = 0
-        sort_x_point = np.sort(xs)
-        for i in range(len(sort_x_point) - 1):
-            if sort_x_point[i + 1] - sort_x_point[i] > cellx_dis:
-                x_point_arr.append(sort_x_point[i])
-            i = i + 1
-        x_point_arr.append(sort_x_point[i])  # 要将最后一个点加入
-
-        i = 0
-        sort_y_point = np.sort(ys)
-        for i in range(len(sort_y_point) - 1):
-            if (sort_y_point[i + 1] - sort_y_point[i] > celly_dis):
-                y_point_arr.append(sort_y_point[i])
-            i = i + 1
-        # 要将最后一个点加入
-        y_point_arr.append(sort_y_point[i])
-
-        # 按照轮廓识别坐标
-        squares, result_img = self.find_squares(merge.copy(), src.copy(), config)
-        cv2.drawContours(result_img, squares, -1, (0, 0, 255), 2)
-        return squares, result_img
 
     def get_result(self, pdf_file, start_index, end_index, **kwargs):
         ip_str = kwargs["ip"]
@@ -191,7 +60,7 @@ class BlueprintParser(BaseParser):
                     int(image_copy.shape[1] * 5 / 8):image_copy.shape[1]]
             # 单元格检测
             # 获取单元格列表 result_squares 单元格清单 result_img 调试信息
-            res_squares, res_image = self.parse_pic_to_struct(image_yx, self.get_config_json('fj2'))
+            res_squares, res_image = parse_pic_to_struct(image_yx, get_config_json('fj2'))
             # 未识别出轮廓
             if len(res_squares) == 0:
                 return pdf_res, pdf_image, pdf_cut_image

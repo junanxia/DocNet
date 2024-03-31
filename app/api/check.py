@@ -7,10 +7,10 @@ from utils.util import verify_data
 from parser.wrapper import parser_wrapper
 
 
-blueprint_api = Blueprint('blueprint', __name__, url_prefix='/struct')
+check_api = Blueprint('quality_check', __name__, url_prefix='/struct')
 
-@blueprint_api.route("/struct/blue_print_pdf", methods=["POST"])
-def blue_print_pdf():
+@check_api.route("/quality_check_pdf", methods=["POST"])
+def quality_check_pdf():
     try:
         # 校验code
         v_flag, message = verify_data(request.form)
@@ -19,24 +19,23 @@ def blue_print_pdf():
         
         # 获取请求参数
         file_path = request.form.get("savePath")
-        index = request.form.get("index")
         if not file_path:
             return jsonify({"error": "请传入文件地址!"}), 500
-        if not index:
-            return jsonify({"error": "请传入索引!"}), 500
-        if isinstance(index, str) and not index.isdigit():
-            return jsonify({"error": "结束索引入参错误!"}), 500
         if not os.path.exists(file_path):
             return jsonify({"error": "不存在该文件！"}), 500
         # 获取请求的ip地址
         ip = request.remote_addr
         ip_str = str(ip).replace('.', '-')
-        all_res, all_images, all_cut_images = parser_wrapper.blueprint_parser.get_result(file_path, int(index), -1, ip=ip_str)
+        result, report_number, date_of_commission, unit_of_commission, qz_people, wt_people, images_path = infer_quality_check(
+            file_path, INFER_CLASS, ip_str)
         return jsonify(
             {
-                "all_res": all_res,
-                "all_images": all_images,
-                "all_cut_images": all_cut_images,
+                "result": np.array(list(result)).tolist(),
+                "reportNumber": np.array(list(report_number)).tolist(),
+                "dateCommission": np.array(list(date_of_commission)).tolist(),
+                "qz_people": np.array(list(qz_people)).tolist(),
+                "wt_people": np.array(list(wt_people)).tolist(),
+                "images": np.array(list(images_path)).tolist()
             }
         ), 200
     except Exception as e:

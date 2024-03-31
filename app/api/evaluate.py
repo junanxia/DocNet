@@ -2,15 +2,14 @@ import os
 import sys
 import traceback
 import numpy as np
-from flask import Blueprint, request, jsonify, current_app
+from flask import Blueprint, request, jsonify
 from utils.util import verify_data
 from parser.wrapper import parser_wrapper
 
 
-blueprint_api = Blueprint('blueprint', __name__, url_prefix='/struct')
-
-@blueprint_api.route("/struct/blue_print_pdf", methods=["POST"])
-def blue_print_pdf():
+evaluate_api = Blueprint('evaluate', __name__, url_prefix='/struct')
+@evaluate_api.route("/struct/quality_evaluate_pdf", methods=["POST"])
+def quality_evaluate_pdf():
     try:
         # 校验code
         v_flag, message = verify_data(request.form)
@@ -25,18 +24,17 @@ def blue_print_pdf():
         if not index:
             return jsonify({"error": "请传入索引!"}), 500
         if isinstance(index, str) and not index.isdigit():
-            return jsonify({"error": "结束索引入参错误!"}), 500
+            return jsonify({"error": "索引入参错误!"}), 500
         if not os.path.exists(file_path):
             return jsonify({"error": "不存在该文件！"}), 500
         # 获取请求的ip地址
         ip = request.remote_addr
         ip_str = str(ip).replace('.', '-')
-        all_res, all_images, all_cut_images = parser_wrapper.blueprint_parser.get_result(file_path, int(index), -1, ip=ip_str)
+        image, result = parser_wrapper.evaluate_parser.get_result(file_path, int(index), -1, ip=ip_str)
         return jsonify(
             {
-                "all_res": all_res,
-                "all_images": all_images,
-                "all_cut_images": all_cut_images,
+                "image": image,
+                "result": result
             }
         ), 200
     except Exception as e:

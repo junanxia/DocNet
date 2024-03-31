@@ -11,6 +11,8 @@ import hashlib
 import cv2
 import base64
 import numpy as np
+import math
+from scipy.ndimage import rotate
 
 
 def md5_encrypt_string(string):
@@ -192,3 +194,58 @@ def find_largest_rectangle(rectangles):
             largest_rectangle = rectangle
 
     return largest_rectangle
+
+def get_rect_center(rect):
+    # rect 是一个二维列表，包含四个顶点坐标
+    # 例如：rect = [[87, 521], [191, 520], [191, 619], [88, 621]]
+
+    # 计算中心点坐标
+    x = (rect[0][0] + rect[2][0]) / 2
+    y = (rect[0][1] + rect[2][1]) / 2
+
+    return x, y
+
+# 获取结果中y值跟样品编号差距最小的一项
+def get_closest_rect(rects, center_y):
+    closest_rect = None
+    min_dis = 10000000
+    for rect in rects:
+        _, box_center_y = get_rect_center(rect['bbox'])
+        dis = abs(box_center_y - center_y)
+        if dis < min_dis:
+            closest_rect = rect
+            min_dis = dis
+    return closest_rect
+
+
+# 矫正图片
+def rot_image(crop):
+    # 获取旋转角度
+    gray = cv2.cvtColor(crop, cv2.COLOR_BGR2GRAY)
+    edges = cv2.Canny(gray, 50, 150, apertureSize=3)
+    lines = cv2.HoughLines(edges, 1, np.pi / 180, 0)
+    x1, x2, y1, y2 = 0, 0, 0, 0
+    if lines is None:
+        return crop
+    for rho, theta in lines[0]:
+        a = np.cos(theta)
+        b = np.sin(theta)
+        x0 = a * rho
+        y0 = b * rho
+        x1 = int(x0 + 1000 * (-b))
+        y1 = int(y0 + 1000 * a)
+        x2 = int(x0 - 1000 * (-b))
+        y2 = int(y0 - 1000 * a)
+    # 矫正角度为0
+    if x1 == x2 or y1 == y2:
+        return crop
+    t = float(y2 - y1) / (x2 - x1)
+    rotate_angle = math.degrees(math.atan(t))
+    if rotate_angle > 45:
+        rotate_angle = rotate_angle - 90
+    elif rotate_angle < -45:
+        rotate_angle = rotate_angle + 90
+    if rotate_angle == 45 or rotate_angle == -45:
+        return crop
+    rotate_img = rotate(crop, rotate_angle)
+    return rotate_img

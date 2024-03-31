@@ -20,6 +20,8 @@ from api.contract import contract_api
 from api.upload import upload_api
 from api.download import download_api
 from api.blueprint import blueprint_api
+from api.check import check_api
+from api.evaluate import evaluate_api
 
 
 class MainExitException(Exception):
@@ -53,6 +55,8 @@ def create_app():
     app.register_blueprint(upload_api)
     app.register_blueprint(download_api)
     app.register_blueprint(blueprint_api)
+    app.register_blueprint(check_api)
+    app.register_blueprint(evaluate_api)
 
     return app
 
