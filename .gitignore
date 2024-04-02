@@ -80,3 +80,6 @@ app/data/download
 app/inference_model
 
 app/log_file
+
+datasets
+
