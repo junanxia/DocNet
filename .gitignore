@@ -71,6 +71,10 @@ Thumbs.db
 
 venv/*.*
 
+.idea
+
+venv-*
+
 __pycache__
 
 app/data/upload
@@ -82,4 +86,6 @@ app/inference_model
 app/log_file
 
 datasets
+
+
 
