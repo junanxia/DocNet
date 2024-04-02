@@ -26,8 +26,8 @@ def quality_check_pdf():
         # 获取请求的ip地址
         ip = request.remote_addr
         ip_str = str(ip).replace('.', '-')
-        result, report_number, date_of_commission, unit_of_commission, qz_people, wt_people, images_path = infer_quality_check(
-            file_path, INFER_CLASS, ip_str)
+        result, report_number, date_of_commission, unit_of_commission, qz_people, wt_people, images_path = parser_wrapper.check_parser.get_result(
+            file_path, -1, -1, ip=ip_str)
         return jsonify(
             {
                 "result": np.array(list(result)).tolist(),

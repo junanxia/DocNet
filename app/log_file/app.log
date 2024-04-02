@@ -48,3 +48,98 @@
 2024-03-22 16:52:33,707 INFO D:\Working\ocr\new-code\app\server.py: Response: 500 INTERNAL SERVER ERROR
 2024-03-28 14:48:52,350 INFO D:\Working\ocr\new-code\app\server.py: Request: /struct/contract_in_pdf_v14_ocr?
 2024-03-28 14:48:52,362 INFO D:\Working\ocr\new-code\app\server.py: Response: 500 INTERNAL SERVER ERROR
+2024-03-29 10:40:42,687 INFO D:\Working\ocr\DocNet\app\server.py: DocNet Web Server(1.0.0) started on port 9990.
+2024-03-29 10:44:29,298 INFO D:\Working\ocr\DocNet\app\server.py: Request: /struct/upload_contract_pdf?
+2024-03-29 10:44:29,459 INFO D:\Working\ocr\DocNet\app\server.py: Response: 200 OK
+2024-03-29 10:44:47,179 INFO D:\Working\ocr\DocNet\app\server.py: Request: /struct/contract_in_pdf_v14_ocr?
+2024-03-29 10:45:37,042 INFO D:\Working\ocr\DocNet\app\api\contract.py: error:ContractParser.get_contract_single_result() missing 1 required positional argument: 'INFER_CLASS'
+2024-03-29 10:45:37,073 INFO D:\Working\ocr\DocNet\app\server.py: Response: 500 INTERNAL SERVER ERROR
+2024-03-29 10:48:26,291 INFO D:\Working\ocr\DocNet\app\server.py: DocNet Web Server(1.0.0) started on port 9990.
+2024-03-29 10:48:31,443 INFO D:\Working\ocr\DocNet\app\server.py: Request: /struct/contract_in_pdf_v14_ocr?
+2024-03-29 10:49:20,053 INFO D:\Working\ocr\DocNet\app\server.py: Response: 200 OK
+2024-03-29 10:50:28,376 INFO D:\Working\ocr\DocNet\app\server.py: DocNet Web Server(1.0.0) started on port 9990.
+2024-03-29 11:05:54,531 INFO D:\Working\ocr\DocNet\app\server.py: DocNet Web Server(1.0.0) started on port 9990.
+2024-03-29 11:06:15,314 INFO D:\Working\ocr\DocNet\app\server.py: Request: /struct/contract_in_pdf_v14_ocr?
+2024-03-29 11:06:59,188 INFO D:\Working\ocr\DocNet\app\server.py: Response: 200 OK
+2024-03-29 11:06:59,196 INFO D:\Working\ocr\DocNet\app\server.py: Request: /struct/contract_in_pdf_v14_ocr?
+2024-03-29 11:10:58,053 INFO D:\Working\ocr\DocNet\app\api\contract.py: error:ContractParser.get_contract_txt_clas() takes 2 positional arguments but 3 were given
+2024-03-29 11:10:58,078 INFO D:\Working\ocr\DocNet\app\server.py: Response: 500 INTERNAL SERVER ERROR
+2024-03-29 11:13:08,927 INFO D:\Working\ocr\DocNet\app\server.py: DocNet Web Server(1.0.0) started on port 9990.
+2024-03-29 11:13:14,801 INFO D:\Working\ocr\DocNet\app\server.py: Request: /struct/contract_in_pdf_v14_ocr?
+2024-03-29 11:17:13,188 INFO D:\Working\ocr\DocNet\app\server.py: Response: 200 OK
+2024-03-29 11:21:32,214 INFO D:\Working\ocr\DocNet\app\server.py: DocNet Web Server(1.0.0) started on port 9990.
+2024-03-29 11:23:06,028 INFO D:\Working\ocr\DocNet\app\server.py: Request: /struct/contract_in_pdf_v14_ocr?
+2024-03-29 11:23:53,313 INFO D:\Working\ocr\DocNet\app\server.py: Response: 200 OK
+2024-03-29 11:25:42,830 INFO D:\Working\ocr\DocNet\app\server.py: DocNet Web Server(1.0.0) started on port 9990.
+2024-03-29 11:25:53,158 INFO D:\Working\ocr\DocNet\app\server.py: Request: /struct/contract_in_pdf_v14_ocr?
+2024-03-29 11:26:45,613 INFO D:\Working\ocr\DocNet\app\server.py: Response: 200 OK
+2024-03-29 11:28:37,143 INFO D:\Working\ocr\DocNet\app\server.py: DocNet Web Server(1.0.0) started on port 9990.
+2024-03-29 11:28:39,718 INFO D:\Working\ocr\DocNet\app\server.py: Request: /struct/contract_in_pdf_v14_ocr?
+2024-03-29 11:29:25,646 INFO D:\Working\ocr\DocNet\app\server.py: Response: 200 OK
+2024-03-29 13:52:09,369 INFO D:\Working\ocr\DocNet\app\server.py: DocNet Web Server(1.0.0) started on port 9990.
+2024-03-29 13:52:16,474 INFO D:\Working\ocr\DocNet\app\server.py: Request: /struct/contract_in_pdf_v14_ocr?
+2024-03-29 13:53:01,707 INFO D:\Working\ocr\DocNet\app\server.py: Response: 200 OK
+2024-03-29 13:55:39,853 INFO D:\Working\ocr\DocNet\app\server.py: DocNet Web Server(1.0.0) started on port 9990.
+2024-03-29 13:56:14,524 INFO D:\Working\ocr\DocNet\app\server.py: Request: /struct/contract_in_pdf_v14_ocr?
+2024-03-29 13:56:57,421 INFO D:\Working\ocr\DocNet\app\server.py: Response: 200 OK
+2024-03-29 14:00:11,844 INFO D:\Working\ocr\DocNet\app\server.py: DocNet Web Server(1.0.0) started on port 9990.
+2024-03-29 14:00:17,099 INFO D:\Working\ocr\DocNet\app\server.py: Request: /struct/upload_contract_pdf?
+2024-03-29 14:00:17,326 INFO D:\Working\ocr\DocNet\app\server.py: Response: 200 OK
+2024-03-29 14:01:22,710 INFO D:\Working\ocr\DocNet\app\server.py: Request: /struct/contract_in_pdf_v14_ocr?
+2024-03-29 14:01:22,711 INFO D:\Working\ocr\DocNet\app\server.py: Response: 500 INTERNAL SERVER ERROR
+2024-03-29 14:01:38,882 INFO D:\Working\ocr\DocNet\app\server.py: Request: /struct/contract_in_pdf_v14_ocr?
+2024-03-29 14:02:23,383 INFO D:\Working\ocr\DocNet\app\server.py: Response: 200 OK
+2024-03-29 14:05:16,784 INFO D:\Working\ocr\DocNet\app\server.py: DocNet Web Server(1.0.0) started on port 9990.
+2024-03-29 14:06:51,498 INFO D:\Working\ocr\DocNet\app\server.py: Request: /struct/contract_in_pdf_v14_ocr?
+2024-03-29 14:07:37,313 INFO D:\Working\ocr\DocNet\app\parser\contract_parser.py: uie-cover: [{'合同名称': [{'text': '扩大杭嘉湖南排后续西部通道 \n（南北线）工程九溪出水口枢纽段 \n设计采购施工(EPC)总承包合同', 'start': 0, 'end': 48, 'probability': 0.8764079410131345}], '发包单位名称': [{'text': '杭州市南排水利发展有限公司', 'start': 55, 'end': 68, 'probability': 0.9998372842964933}], '承建单位名称': [{'text': '浙江省水利水电勘测设计院有限责任公司', 'start': 74, 'end': 92, 'probability': 0.9997729181564807}, {'text': '浙江省第一水电建设集团股份有限公司', 'start': 126, 'end': 143, 'probability': 0.9996344695362325}, {'text': '中国电建集团华东勘测设计研究院有限公司', 'start': 99, 'end': 118, 'probability': 0.999710336683659}]}]
+2024-03-29 14:07:37,342 INFO D:\Working\ocr\DocNet\app\server.py: Response: 200 OK
+2024-03-29 16:22:28,773 INFO D:\Working\ocr\DocNet\app\server.py: DocNet Web Server(1.0.0) started on port 9990.
+2024-03-29 16:49:54,659 INFO D:\Working\ocr\DocNet\app\server.py: DocNet Web Server(1.0.0) started on port 9990.
+2024-03-29 16:50:05,995 INFO D:\Working\ocr\DocNet\app\server.py: Request: /struct/contract_in_pdf_v14_ocr?
+2024-03-29 16:50:47,076 INFO D:\Working\ocr\DocNet\app\api\contract.py: error:'ModelClass' object has no attribute 'infer_uie_contract_cover'
+2024-03-29 16:50:47,088 INFO D:\Working\ocr\DocNet\app\server.py: Response: 500 INTERNAL SERVER ERROR
+2024-03-29 16:57:26,734 INFO D:\Working\ocr\DocNet\app\server.py: DocNet Web Server(1.0.0) started on port 9990.
+2024-03-29 16:57:31,276 INFO D:\Working\ocr\DocNet\app\server.py: Request: /struct/contract_in_pdf_v14_ocr?
+2024-03-29 16:58:23,286 INFO D:\Working\ocr\DocNet\app\parser\contract_parser.py: uie-cover: {'合同名称': [{'text': '扩大杭嘉湖南排后续西部通道 \n（南北线）工程九溪出水口枢纽段 \n设计采购施工(EPC)总承包合同', 'start': 0, 'end': 48, 'probability': 0.8764079410131345}], '发包单位名称': [{'text': '杭州市南排水利发展有限公司', 'start': 55, 'end': 68, 'probability': 0.9998372842964933}], '承建单位名称': [{'text': '浙江省水利水电勘测设计院有限责任公司', 'start': 74, 'end': 92, 'probability': 0.9997729181564807}, {'text': '浙江省第一水电建设集团股份有限公司', 'start': 126, 'end': 143, 'probability': 0.9996344695362325}, {'text': '中国电建集团华东勘测设计研究院有限公司', 'start': 99, 'end': 118, 'probability': 0.999710336683659}]}
+2024-03-29 16:58:23,298 INFO D:\Working\ocr\DocNet\app\server.py: Response: 200 OK
+2024-03-29 16:59:37,092 INFO D:\Working\ocr\DocNet\app\server.py: Request: /struct/contract_in_pdf_v14_ocr?
+2024-03-29 17:00:17,945 INFO D:\Working\ocr\DocNet\app\server.py: Response: 200 OK
+2024-03-29 17:09:15,689 INFO D:\Working\ocr\DocNet\app\server.py: DocNet Web Server(1.0.0) started on port 9990.
+2024-04-01 10:59:27,618 INFO D:\Working\ocr\DocNet\app\server.py: DocNet Web Server(1.0.0) started on port 9990.
+2024-04-01 10:59:36,173 INFO D:\Working\ocr\DocNet\app\server.py: Request: /struct/contract_in_pdf_v14_ocr?
+2024-04-01 11:00:31,080 INFO D:\Working\ocr\DocNet\app\server.py: Response: 200 OK
+2024-04-01 11:16:17,519 INFO D:\Working\ocr\DocNet\app\server.py: DocNet Web Server(1.0.0) started on port 9990.
+2024-04-01 11:33:15,316 INFO D:\Working\ocr\DocNet\app\server.py: DocNet Web Server(1.0.0) started on port 9990.
+2024-04-01 11:33:45,079 INFO D:\Working\ocr\DocNet\app\server.py: Request: /struct/upload_common_pdf?
+2024-04-01 11:33:45,265 INFO D:\Working\ocr\DocNet\app\server.py: Response: 200 OK
+2024-04-01 11:34:00,642 INFO D:\Working\ocr\DocNet\app\server.py: Request: /struct/blue_print_pdf?
+2024-04-01 11:34:00,643 INFO D:\Working\ocr\DocNet\app\server.py: Response: 500 INTERNAL SERVER ERROR
+2024-04-01 11:34:27,058 INFO D:\Working\ocr\DocNet\app\server.py: Request: /struct/blue_print_pdf?
+2024-04-01 11:35:48,110 INFO D:\Working\ocr\DocNet\app\server.py: Response: 500 INTERNAL SERVER ERROR
+2024-04-01 11:37:22,913 INFO D:\Working\ocr\DocNet\app\server.py: DocNet Web Server(1.0.0) started on port 9990.
+2024-04-01 11:37:25,508 INFO D:\Working\ocr\DocNet\app\server.py: Request: /struct/blue_print_pdf?
+2024-04-01 11:38:50,221 INFO D:\Working\ocr\DocNet\app\server.py: Response: 200 OK
+2024-04-01 15:09:44,549 INFO D:\Working\ocr\DocNet\app\server.py: Request: /struct/upload_common_pdf?
+2024-04-01 15:09:44,638 INFO D:\Working\ocr\DocNet\app\server.py: Response: 200 OK
+2024-04-01 15:09:59,910 INFO D:\Working\ocr\DocNet\app\server.py: Request: /struct/quality_check_pdf?
+2024-04-01 15:17:03,054 INFO D:\Working\ocr\DocNet\app\server.py: DocNet Web Server(1.0.0) started on port 9990.
+2024-04-01 15:17:05,662 INFO D:\Working\ocr\DocNet\app\server.py: Request: /struct/quality_check_pdf?
+2024-04-01 15:23:45,055 INFO D:\Working\ocr\DocNet\app\server.py: Response: 200 OK
+2024-04-01 15:24:43,891 INFO D:\Working\ocr\DocNet\app\server.py: Request: /struct/upload_common_pdf?
+2024-04-01 15:24:43,951 INFO D:\Working\ocr\DocNet\app\server.py: Response: 200 OK
+2024-04-01 15:25:18,504 INFO D:\Working\ocr\DocNet\app\server.py: Request: /struct/quality_evaluate_pdf?
+2024-04-01 15:25:18,518 INFO D:\Working\ocr\DocNet\app\server.py: Response: 404 NOT FOUND
+2024-04-01 15:26:24,501 INFO D:\Working\ocr\DocNet\app\server.py: Request: /struct/quality_evaluate_pdf?
+2024-04-01 15:26:24,501 INFO D:\Working\ocr\DocNet\app\server.py: Response: 404 NOT FOUND
+2024-04-01 15:28:00,663 INFO D:\Working\ocr\DocNet\app\server.py: DocNet Web Server(1.0.0) started on port 9990.
+2024-04-01 15:28:04,121 INFO D:\Working\ocr\DocNet\app\server.py: Request: /struct/quality_evaluate_pdf?
+2024-04-01 15:28:04,994 INFO D:\Working\ocr\DocNet\app\server.py: Response: 500 INTERNAL SERVER ERROR
+2024-04-01 15:29:22,426 INFO D:\Working\ocr\DocNet\app\server.py: DocNet Web Server(1.0.0) started on port 9990.
+2024-04-01 15:30:17,171 INFO D:\Working\ocr\DocNet\app\server.py: Request: /struct/quality_evaluate_pdf?
+2024-04-01 15:43:28,454 INFO D:\Working\ocr\DocNet\app\server.py: Response: 200 OK
+2024-04-01 15:52:43,502 INFO D:\Working\ocr\DocNet\app\server.py: Request: /struct/quality_evaluate_pdf?
+2024-04-01 16:05:58,049 INFO D:\Working\ocr\DocNet\app\server.py: DocNet Web Server(1.0.0) started on port 9990.
+2024-04-01 16:53:23,136 INFO D:\Working\ocr\DocNet\app\server.py: Request: /struct/upload_common_pdf?
+2024-04-01 16:53:23,325 INFO D:\Working\ocr\DocNet\app\server.py: Response: 200 OK
+2024-04-01 16:53:37,558 INFO D:\Working\ocr\DocNet\app\server.py: Request: /struct/quality_check_pdf?
+2024-04-01 17:01:16,183 INFO D:\Working\ocr\DocNet\app\server.py: Response: 200 OK

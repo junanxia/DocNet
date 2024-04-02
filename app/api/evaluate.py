@@ -8,7 +8,8 @@ from parser.wrapper import parser_wrapper
 
 
 evaluate_api = Blueprint('evaluate', __name__, url_prefix='/struct')
-@evaluate_api.route("/struct/quality_evaluate_pdf", methods=["POST"])
+
+@evaluate_api.route("/quality_evaluate_pdf", methods=["POST"])
 def quality_evaluate_pdf():
     try:
         # 校验code

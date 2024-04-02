@@ -9,11 +9,13 @@
 """
 import os
 import sys
+import fitz
+import json
 import traceback
 import numpy as np
 from flask import Blueprint, request, jsonify, current_app
-from utils.util import verify_data
-from parser.parser_wrapper import parser_wrapper
+from utils.util import verify_data, save_api_receives, save_to_pdf
+from parser.wrapper import parser_wrapper
 
 
 contract_api = Blueprint('contract', __name__, url_prefix='/struct')
@@ -69,3 +71,38 @@ def contract_in_pdf_v14_ocr():
         traceback.print_exc(file=sys.stdout)
         
         return jsonify({'error': str(e), "code": 500}), 500
+
+
+@contract_api.route('/save_contract_file', methods=['POST'])
+def save_contract_file():
+    try:
+        # 储存接收文件
+        file, save_path = save_api_receives()
+        save_to_pdf(file, save_path)
+        # 获取pdf页数
+        doc_contract = fitz.open(save_path)
+        length = len(doc_contract)
+        # 创建对应的json文件夹
+        data = {
+            'cover_index_list': [],
+            'directory_index_list': [],
+            'protocol_start': -1,
+            'general_start': -1,
+            'special_start': -1,
+            'all_result_texts': [None] * length,
+            'all_result_boxes': [None] * length,
+            'all_result_scores': [None] * length,
+            'cover_uie': None,
+            'protocol_uie': None,
+            'general_uie': None,
+            'special_uie': None
+        }
+        # 指定文件路径
+        json_path = save_path.replace('.pdf', '.json')
+        json_str = json.dumps(data)
+        # 创建并写入 JSON 文件
+        with open(json_path, 'w', encoding="utf-8") as f:
+            f.write(json_str)
+        return jsonify({"path": save_path, 'length': length}), 200
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500

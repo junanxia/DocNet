@@ -9,7 +9,7 @@ from parser.wrapper import parser_wrapper
 
 blueprint_api = Blueprint('blueprint', __name__, url_prefix='/struct')
 
-@blueprint_api.route("/struct/blue_print_pdf", methods=["POST"])
+@blueprint_api.route("/blue_print_pdf", methods=["POST"])
 def blue_print_pdf():
     try:
         # 校验code
