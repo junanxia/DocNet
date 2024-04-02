@@ -2,6 +2,7 @@
 import os
 import uuid
 import datetime
+import fitz
 import urllib.request
 from urllib.parse import urlparse
 from config import Config
@@ -13,6 +14,7 @@ import base64
 import numpy as np
 import math
 from scipy.ndimage import rotate
+from flask import request
 
 
 def md5_encrypt_string(string):
@@ -92,6 +94,26 @@ def save_download_file(oss_path):
     with open(save_path, mode='wb') as f:
         f.write(bytes_io.getvalue())
     return save_path
+
+
+def save_to_pdf(file, output_path):
+    # 打开PDF文件
+    pdf = fitz.open(stream=file.read(), filetype="pdf")
+    # 保存到本地
+    pdf.save(output_path)
+    print(output_path, "文件保存成功！")
+    return output_path
+
+
+# 储存API文件上传日志
+def save_api_receives():
+    # 获取文件
+    received_file = request.files.get("file")
+    received_file_dict = received_file.__dict__
+    file_input_name = received_file_dict.get("filename")
+    # 拼接路径
+    save_path = os.path.join(get_upload_save_path(), file_input_name)
+    return received_file, save_path
 
 
 def img_to_base64(img):

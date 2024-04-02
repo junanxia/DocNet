@@ -8,6 +8,30 @@ from parser.cell_det import parse_pic_to_struct, get_config_json, angle_cos
 
 
 class BlueprintParser(BaseParser):
+
+    @staticmethod
+    def ch_to_en(content):
+        schema = {
+            "核定": "sglt_hd",
+            "审查": "sglt_sc",
+            "校核": "sglt_jh",
+            "设计": "sglt_sj",
+            "制图": "sglt_zt",
+            "工程名称": "sglt_gcmc",
+            "部分": "sglt_bf",
+            "阶段": "sglt_jd",
+            "桩号": "sglt_zh",
+            "图名": "sglt_tm",
+            "日期": "sglt_rq",
+            "图号": "sglt_th",
+            "设计院名称": "sglt_sjymc"
+        }
+        en_dict = {}
+        for key, value in content.items():
+            if key in schema.keys():
+                en_dict[schema[key]] = value
+        return en_dict
+
     # 寻找矩形单元格
     def find_squares(self, bin, img, config):
         # 设置putText函数字体
@@ -50,10 +74,12 @@ class BlueprintParser(BaseParser):
         pdf_cut_image = None
         if start_index >= len(doc_contract):
             return None, None, None
+        
         # 获取当页图片
         cv_image =  self.get_pdf_page_image(doc_contract, start_index)
         image_copy = cv_image[:]
         height, width = cv_image.shape[:2]
+        
         # 横版蓝图
         if height < width:
             image_yx = image_copy[int(image_copy.shape[0] * 3 / 4):image_copy.shape[0],

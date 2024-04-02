@@ -3,8 +3,9 @@ import json
 import sys
 import traceback
 import fitz
+import datetime
 from flask import Blueprint, request, jsonify, current_app
-from utils.util import verify_data, save_oss_file, save_download_file
+from utils.util import verify_data, save_oss_file, save_download_file, md5_encrypt_string, save_api_receives, save_to_pdf
 
 upload_api = Blueprint('upload', __name__, url_prefix='/struct')
 
@@ -114,3 +115,41 @@ def upload_common_pdf_download():
         traceback.print_exc(file=sys.stdout)
 
         return jsonify({'error': str(e), "code": 500}), 500
+    
+
+@upload_api.route('/save_common_file', methods=['POST'])
+def save_common_file():
+    try:
+        # 储存接收文件
+        file, save_path = save_api_receives()
+        save_to_pdf(file, save_path)
+        # 获取pdf页数
+        doc_contract = fitz.open(save_path)
+        length = len(doc_contract)
+        return jsonify({"path": save_path, 'length': length}), 200
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+
+
+@upload_api.route('/checkConnect', methods=['POST'])
+def checkConnect():
+    try:
+        # 获取请求参数
+        if request.content_type.startswith('application/json'):
+            code = request.json.get('code')
+        elif request.content_type.startswith('multipart/form-data'):
+            code = request.form.get('code')
+        else:
+            code = request.values.get("code")
+        if not code:
+            return jsonify({'error': '请传入code！', 'code': 500}), 500
+        current_time = datetime.datetime.now().strftime("%Y-%m-%d %H:%M")
+        en_str = md5_encrypt_string(current_time)
+        final_str = md5_encrypt_string(en_str + "o8ASzhDB89ZsjvsBxK8XDA==")
+        if final_str == code:
+            return jsonify({"success": True, 'code': 200}), 200
+        else:
+            return jsonify({"success": False, 'code': 200}), 200
+    except Exception as e:
+        return jsonify({'error': str(e), 'code': 500}), 500
+

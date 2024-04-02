@@ -37,7 +37,7 @@ class EvaluateParser(BaseParser):
             input_string = input_string.replace(word, "")
         return input_string
 
-    def get_contract_word(self, cv_image, INFER_CLASS):
+    def get_contract_word(self, cv_image):
         # 文字识别
         infer_ch_result = self.model_class.infer_ch.ocr(cv_image)
         ch_boxes, ch_txts, ch_scores = [], [], []
