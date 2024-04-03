@@ -2,13 +2,8 @@
 Global:
   checkpoints: null
   pretrained_model: null
-<<<<<<<< HEAD:model/class/config/PPLCNetV2_base.yaml
-  output_dir: ./output/pplcnet
-  device: cpu
-========
   output_dir: ./output/resnet50_eva
   device: gpu
->>>>>>>> decc680f45a30b0e889045c488007ffa8def8af6:model/class/config/ResNet50.yaml
   save_interval: 1
   eval_during_train: True
   eval_interval: 1
@@ -53,11 +48,7 @@ Optimizer:
 DataLoader:
   Train:
     dataset:
-<<<<<<<< HEAD:model/class/config/PPLCNetV2_base.yaml
-      name: MultiScaleDataset
-========
       name: ImageNetDataset
->>>>>>>> decc680f45a30b0e889045c488007ffa8def8af6:model/class/config/ResNet50.yaml
       image_root: ../../datasets/contract_class/
       cls_label_path: ../../datasets/contract_class/train.txt
       transform_ops:

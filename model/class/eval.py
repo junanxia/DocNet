@@ -19,8 +19,6 @@ import os
 import sys
 
 
-<<<<<<< HEAD
-=======
 paddleclas_root = os.getenv("PADDLECLAS_ROOT")
 if paddleclas_root is None:
     raise Exception("'PADDLECLAS_ROOT' is empty!!!!!")
@@ -29,7 +27,6 @@ if paddleclas_root is None:
 # sys.path.append(os.path.abspath(os.path.join(__dir__, '../')))
 
 sys.path.append(paddleclas_root)
->>>>>>> decc680f45a30b0e889045c488007ffa8def8af6
 
 from ppcls.utils import config
 from ppcls.engine.engine import Engine
