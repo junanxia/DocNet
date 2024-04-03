@@ -7,6 +7,6 @@ PyMuPDF
 flask
 flask_cors
 paddleocr==2.7.3
-paddlepaddle-gpu==2.6.1 #
+paddlepaddle-gpu==2.6.1
 paddlenlp==2.6.1
 paddleclas==2.5.2
