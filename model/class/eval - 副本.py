@@ -18,7 +18,6 @@ from __future__ import print_function
 import os
 import sys
 
-
 paddleclas_root = os.getenv("PADDLECLAS_ROOT")
 if paddleclas_root is None:
     raise Exception("'PADDLECLAS_ROOT' is empty!!!!!")

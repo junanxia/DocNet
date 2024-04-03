@@ -1,6 +1,0 @@
-index,uuid,driver_version,name,gpu_serial,display_active,display_mode
-0,GPU-e534c0b3-88a4-e0ce-6ee9-725eea387d56,537.42,NVIDIA GeForce RTX 3090,[N/A],Disabled,Disabled
-
-pid,process_name,gpu_uuid,gpu_name,used_memory
-index,utilization_gpu,memory_total,memory_used,memory_free,timestamp
-0,0,24576,1,24338,2024/04/02 10:54:15.912
