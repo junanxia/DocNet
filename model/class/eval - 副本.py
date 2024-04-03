@@ -18,9 +18,6 @@ from __future__ import print_function
 import os
 import sys
 
-
-<<<<<<< HEAD
-=======
 paddleclas_root = os.getenv("PADDLECLAS_ROOT")
 if paddleclas_root is None:
     raise Exception("'PADDLECLAS_ROOT' is empty!!!!!")
@@ -29,7 +26,6 @@ if paddleclas_root is None:
 # sys.path.append(os.path.abspath(os.path.join(__dir__, '../')))
 
 sys.path.append(paddleclas_root)
->>>>>>> decc680f45a30b0e889045c488007ffa8def8af6
 
 from ppcls.utils import config
 from ppcls.engine.engine import Engine
@@ -38,12 +34,5 @@ if __name__ == "__main__":
     args = config.parse_args()
     config = config.get_config(
         args.config, overrides=args.override, show=False)
-    engine = Engine(config, mode="eval")paddleclas_root = os.getenv("PADDLECLAS_ROOT")
-if paddleclas_root is None:
-    raise Exception("'PADDLECLAS_ROOT' is empty!!!!!")
-
-# __dir__ = os.path.dirname(os.path.abspath(__file__))
-# sys.path.append(os.path.abspath(os.path.join(__dir__, '../')))
-
-sys.path.append(paddleclas_root)
+    engine = Engine(config, mode="eval")
     engine.eval()
