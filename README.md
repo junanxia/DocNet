@@ -6,7 +6,6 @@
 cd app
 pip install -r requirement.txt
 
-
 # 单线程
 python server.py
 
