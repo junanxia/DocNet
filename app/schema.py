@@ -9,6 +9,9 @@ schema_sg_protocol = ["合同名称", "合同价", "合同工期", "开始时间
 # 专有
 schema_sg_special = ['考勤条款', '人员变更条款', '分包约定']
 
+# 全部
+schema_sg_all = schema_sg_protocol + schema_sg_special
+
 # 施工蓝图
 schema_bp = ["核定", "审查", "校核", "设计", "制图", "工程名称", "部分", "阶段", "桩号", "图名", "日期", "图号", "设计院名称"]
 

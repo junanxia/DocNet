@@ -4,7 +4,7 @@ from paddleocr import PaddleOCR
 from paddlenlp import Taskflow
 from paddleclas import PaddleClas
 from config import Config
-from schema import schema_sg_protocol, schema_sg_special, schema_qc, schema_bp, schema_qe
+from schema import schema_qc, schema_bp, schema_qe, schema_sg_all
 
 
 class ModelClass(object):
@@ -22,16 +22,13 @@ class ModelClass(object):
         print("-------------------- 合同UIE 模型初始化 -----------------------")
         self.infer_uie_contract = Taskflow(
             "information_extraction",
-            schema=schema_sg_protocol,
-            task_path=os.path.join(model_root_path, "ch_uie"),
-        )
-        
-        self.infer_uie_contract_special = Taskflow(
-            "information_extraction",
-            schema=schema_sg_special,
-            task_path=os.path.join(model_root_path, "ch_uie_special")
+            schema=schema_sg_all,
+            model='uie-mini',
+            position_prob=0.1,
+            task_path=os.path.join(model_root_path, "ht-uie"),
         )
 
+        # --------------------------UIE-X----------------------------------------
         self.infer_uie_quality_check = Taskflow("information_extraction", model="uie-x-base", schema=schema_qc,
                                                 task_path=os.path.join(model_root_path, "ch_uie_quality_check"),
                                                 precision='fp32')

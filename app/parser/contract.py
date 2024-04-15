@@ -4,8 +4,7 @@ import cv2
 import os
 from parser.base import BaseParser
 from utils.util import get_download_save_path
-from flask import current_app
-from schema import schema_sg_cover
+from schema import schema_sg_cover, schema_sg_special
 
 
 class ContractParser(BaseParser):
@@ -81,18 +80,23 @@ class ContractParser(BaseParser):
         res = self.model_class.infer_uie_contract(contract_text)[0]
         cover_res = {key:value for key, value in res.items() if key in schema_sg_cover}
 
-        # current_app.logger.info('uie-cover: %s', cover_res)
         return cover_res
 
     # UIE 提取关键字
     def get_contract_uie_protocol(self, contract_text):
         res = self.model_class.infer_uie_contract(contract_text)[0]
-        # current_app.logger.info('uie-protocol: %s', res)
+        
         return res
     
     # UIE提取专用合同
     def get_contract_uie_special(self, contract_text):
-        return self.model_class.infer_uie_contract_special(contract_text)
+        # old
+        # return self.model_class.infer_uie_contract_special(contract_text)
+        
+        # new
+        res = self.model_class.infer_uie_contract(contract_text)[0]
+        special_res = {key:value for key, value in res.items() if key in schema_sg_special}
+        return special_res
 
     def merge_contract_horizontal(self, res_boxes, res_txts, res_scores):
         # 合并纵向文本
